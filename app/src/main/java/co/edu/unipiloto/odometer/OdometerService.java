@@ -84,10 +84,10 @@ public class OdometerService extends Service {
         }
     }
 
-    public double getDistance(){
+    public double getDistanceMillas(){
         return this.distanceInMeters/1609.344;
     }
-    public double getDistanceMe(){
+    public double getDistanceMetros(){
         return this.distanceInMeters;
     }
 }

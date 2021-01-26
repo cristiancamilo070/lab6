@@ -16,7 +16,7 @@ import java.util.Locale;
 public class MainActivity extends Activity {
     private OdometerService odometer;
     private boolean bound=false;
-    private int tiempoActu=1000;
+    private int tiempoActual =1000;
 
     private ServiceConnection connection = new ServiceConnection() {
         @Override
@@ -56,14 +56,14 @@ public class MainActivity extends Activity {
     }
 
     private void displayDistanceMillas(){
-        final TextView distanceView=(TextView)findViewById(R.id.distance);
+        final TextView distanceView=(TextView)findViewById(R.id.millas);
         final Handler handler= new Handler();
         handler.post(new Runnable() {
             @Override
             public void run() {
                 double distance = 0.0;
                 if (bound && odometer !=null){
-                    distance=odometer.getDistance();
+                    distance=odometer.getDistanceMillas();
                 }
                 String distanceStr = String.format(Locale.getDefault(),"%1$,.2f miles",distance);
                 distanceView.setText(distanceStr);
@@ -73,30 +73,30 @@ public class MainActivity extends Activity {
     }
 
     private void displayDistanceMetros(){
-        final TextView distanceView=(TextView)findViewById(R.id.distanceMe);
+        final TextView distanceView=(TextView)findViewById(R.id.metros);
         final Handler handler= new Handler();
         handler.post(new Runnable() {
             @Override
             public void run() {
                 double distance = 0.0;
                 if (bound && odometer !=null){
-                    distance=odometer.getDistanceMe();
+                    distance=odometer.getDistanceMetros();
                 }
                 String distanceStr = String.format(Locale.getDefault(),"%1$,.2f metros",distance);
 
-                distanceView.setText(distanceStr+ "\n" + "con tiempo: " + (tiempoActu/1000) + "segs");
-                handler.postDelayed(this,tiempoActu);
+                distanceView.setText(distanceStr+ "\n" + "con tiempo: " + (tiempoActual /1000) + "segs");
+                handler.postDelayed(this, tiempoActual);
             }
         });
     }
 
     public void aumentar(View view){
-        if(tiempoActu<10000)
-            tiempoActu+=1000;
+        if(tiempoActual <10000)
+            tiempoActual +=1000;
     }
 
     public void disminuir(View view){
-        if(tiempoActu>1000)
-            tiempoActu-=1000;
+        if(tiempoActual >1000)
+            tiempoActual -=1000;
     }
 }

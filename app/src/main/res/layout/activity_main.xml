@@ -9,7 +9,7 @@
     android:padding="16dp"
     tools:context=".MainActivity">
     <TextView
-        android:id="@+id/distance"
+        android:id="@+id/millas"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="31sp"
@@ -17,7 +17,7 @@
         android:layout_gravity="center_horizontal"
         android:textAppearance="?android:attr/textAppearanceLarge"/>
     <TextView
-        android:id="@+id/distanceMe"
+        android:id="@+id/metros"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="31sp"
